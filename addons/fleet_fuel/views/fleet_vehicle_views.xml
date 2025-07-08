@@ -1,0 +1,35 @@
+<odoo>
+  <record id="fleet_vehicle_view_form_inherit" model="ir.ui.view">
+    <field name="name">fleet.vehicle.form.inherit.fuel</field>
+    <field name="model">fleet.vehicle</field>
+    <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='category_id']" position="after">
+        <field name="plate_number"/>  
+        <field name="user_id"/>  
+      </xpath>
+      <xpath expr="//sheet/group" position="inside">
+        <group string="Combustible">
+          <field name="maintenance_interval_km"/>
+          <field name="next_maintenance_km"/>
+        </group>
+      </xpath>
+      <xpath expr="//page[@name='page_model']" position="after">
+        <page name="fuel_log" string="Logs de Combustible">
+          <field name="fuel_log_ids">
+            <list>
+              <field name="vehicle_id"/>
+              <field name="date"/>
+              <field name="driver_id"/>
+              <field name="plate_number"/>
+              <field name="gallons"/>
+              <field name="price_per_gallon"/>
+              <field name="odometer_current"/>
+              <field name="cost_per_km" />
+            </list>
+          </field>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

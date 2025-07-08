@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='fleet_vehicle_view_user_kanban' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.user.kanban</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state_id" sample="1" create="false" quick_create="false" edit="false" delete="false"
+                    string="Vehículos" class="o_fleet_vehicle_kanban">
+                <field name="contract_renewal_due_soon" />
+                <field name="contract_renewal_overdue" />
+                <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+
+                <templates>
+                    <t t-name="card" class="flex-row">
+                        <aside class="d-flex align-items-center me-2">
+                            <field name="image_128" widget="image" options="{'img_class': 'object-fit-cover'}"/>
+                        </aside>
+                        <main>
+                            <div>
+                                <t t-if="record.license_plate.raw_value">
+                                    <field class="fw-bolder fs-5" name="license_plate"/>:
+                                </t>
+                                <field class="fw-bolder fs-5" name="model_id"/>
+                            </div>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field t-if="record.driver_id.raw_value" name="driver_id" widget="many2one_avatar" options="{'display_avatar_name': True}" class="small pt-1 pb-1"/>
+                            <div class="small">
+                                <t t-if="record.future_driver_id.raw_value">Future Driver : <field name="future_driver_id"/></t>
+                            </div>
+                            <t t-if="record.location.raw_value"><small><i class="fa fa-map-marker" title="Location"></i> <field name="location"/></small></t>
+                            <field name="vehicle_properties" widget="properties"/>
+                            <footer class="pt-0 mt-0" t-if="!selection_mode">
+                                <div class="d-flex fs-6">
+                                    <a t-if="record.contract_count.raw_value>0" type="object"
+                                        name="return_action_to_open" href="#" data-context='{"xml_id":"fleet_vehicle_log_contract_action"}'>
+                                        <field name="contract_count"/>
+                                        Contract(s)
+                                        <span t-if="record.contract_renewal_due_soon.raw_value and !record.contract_renewal_overdue.raw_value"
+                                            class="fa fa-exclamation-triangle text-warning" role="img" aria-label="Warning: renewal due soon" title="Warning: renewal due soon">
+                                        </span>
+                                        <span t-if="record.contract_renewal_overdue.raw_value"
+                                            class="fa fa-exclamation-triangle text-danger" role="img" aria-label="Attention: renewal overdue" title="Attention: renewal overdue">
+                                        </span>
+                                    </a>
+                                    <field name="activity_ids" widget="kanban_activity" class="ms-2"/>
+                                </div>
+                            </footer>
+                        </main>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_fleet_vehicle_search" model="ir.ui.view">
+      <field name="name">fleet.vehicle.search</field>
+      <field name="model">fleet.vehicle</field>
+      <field name="arch" type="xml">
+        <search string="Vehículos">
+          <field name="plate_number"/>
+          <field name="name"/>
+        </search>
+      </field>
+    </record>
+
+    <record id="action_fleet_vehicle_view_user" model="ir.actions.act_window">
+        <field name="name">Vehículos</field>
+        <field name="path">vehicle_user</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fleet.vehicle</field>
+        <field name="context">{}</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+        <field name="binding_view_types">kanban</field>
+        <field name="view_mode">kanban</field>
+        <field name="search_view_id" ref="view_fleet_vehicle_search"/>
+    </record>
+    <record id="action_fleet_vehicle_view_user_kanban" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_fleet_vehicle_view_user"/>
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="fleet_vehicle_view_user_kanban"/>
+    </record>
+    
+    <menuitem id="vehicle_user_menu"
+              name="Vehículos"
+              parent="menu_fleet_fuel_root"
+              action="action_fleet_vehicle_view_user"
+              sequence="80"
+              groups="fleet_fuel.group_fleet_fuel_user"/>
+</odoo>

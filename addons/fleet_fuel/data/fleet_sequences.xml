@@ -1,0 +1,8 @@
+<odoo>
+  <record id="seq_fuel_log" model="ir.sequence">
+    <field name="name">Secuencia Logs Combustible</field>
+    <field name="code">fleet.fuel.log</field>
+    <field name="padding">5</field>
+    <field name="prefix">FL-LOG-</field>
+  </record>
+</odoo>

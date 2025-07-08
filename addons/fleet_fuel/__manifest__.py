@@ -1,0 +1,23 @@
+{
+    'name': 'Fleet & Fuel Management',
+    'version': '1.1',
+    'category': 'Fleet',
+    'summary': 'Gestión de flota, combustible, mantenimiento',
+    'author': 'Ewarbot',
+    'depends': ['fleet', 'account'],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'data/mail_template.xml',
+        'data/fleet_sequences.xml',
+        'data/cron_maintenance.xml',
+        'views/fleet_vehicle_views.xml',
+        'views/fleet_fuel_log_views.xml',
+        'views/fleet_fuel_log_user_views.xml',
+        'views/fleet_vehicle_user_views.xml',
+        'views/account_move_views.xml',
+        'views/fuel_views.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+}
