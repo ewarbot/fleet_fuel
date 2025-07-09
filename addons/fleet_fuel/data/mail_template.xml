@@ -1,28 +1,28 @@
 <odoo>
   <data noupdate="1">
     <record id="email_template_manintenance" model="mail.template">
-      <field name="name">Recordatorio Mantenimiento Vehículo</field>
+      <field name="name">Vehicle Maintenance Reminder</field>
       <field name="model_id" ref="fleet.model_fleet_vehicle"/>
-      <field name="subject">Recordatorio: Mantenimiento de ${object.name}</field>
+      <field name="subject">Reminder: Maintenance for ${object.name}</field>
       <field name="email_from">${(user.email_formatted or user.email)|safe}</field>
       <field name="email_to">
         ${object.user_id.email or object.driver_id.email|safe}
       </field>
       <field name="body_html"><![CDATA[
-        <p>Hola ${object.user_id.name or object.driver_id.name},</p>
+        <p>Hello ${object.user_id.name or object.driver_id.name},</p>
         <p>
-          Te recordamos que el vehículo
-          <strong>${object.name}</strong> (placa: <strong>${object.plate_number}</strong>)
-          tiene programado un mantenimiento en
+          This is a reminder that the vehicle
+          <strong>${object.name}</strong> (plate: <strong>${object.plate_number}</strong>)
+          is scheduled for maintenance on
           <strong>${object.next_maintenance_km} km</strong>.
         </p>
         <p>
-          Kilometraje actual: <strong>${object.odometer} km</strong>.<br/>
-          Intervalo de mantenimiento: <strong>${object.maintenance_interval_km} km</strong>.
+          Current mileage: <strong>${object.odometer} km</strong>.<br/>
+          Maintenance interval: <strong>${object.maintenance_interval_km} km</strong>.
         </p>
-        <p>Por favor, prográmalo a la brevedad.</p>
+        <p>Please schedule it as soon as possible.</p>
         <br/>
-        <p>Saludos,</p>
+        <p>Best regards,</p>
         <p>${user.company_id.name}</p>
       ]]></field>
     </record>

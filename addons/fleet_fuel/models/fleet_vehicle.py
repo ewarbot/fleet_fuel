@@ -5,12 +5,12 @@ from odoo.osv import expression
 class FleetVehicle(models.Model):
     _inherit = 'fleet.vehicle'
 
-    maintenance_interval_km = fields.Integer(string='Intervalo de Mantenimiento (km)')
-    next_maintenance_km = fields.Integer(string='Próximo Mantenimiento (km)')
-    plate_number = fields.Char(string='Número de Placa', required=True)
-    fuel_logs_count = fields.Integer(string='Cantidad de Logs', compute='_compute_fuel_logs_count')
-    fuel_log_ids = fields.One2many('fleet.fuel.log', 'vehicle_id', string='Logs de Combustible')
-    user_id = fields.Many2one('res.users', string='Usuario Asignado', default=lambda self: self.env.user)
+    maintenance_interval_km = fields.Integer(string='maintenance interval (km)')
+    next_maintenance_km = fields.Integer(string='Next Maintenance (km)')
+    plate_number = fields.Char(string='Plate Number', required=True)
+    fuel_logs_count = fields.Integer(string='Number of Logs', compute='_compute_fuel_logs_count')
+    fuel_log_ids = fields.One2many('fleet.fuel.log', 'vehicle_id', string='Fuel Logs')
+    user_id = fields.Many2one('res.users', string='Assigned User', default=lambda self: self.env.user)
 
     @api.depends('fuel_log_ids')
     def _compute_fuel_logs_count(self):
@@ -27,11 +27,11 @@ class FleetVehicle(models.Model):
     def _check_interval_positive(self):
         for rec in self:
             if rec.maintenance_interval_km <= 0:
-                raise ValidationError("El intervalo de mantenimiento debe ser mayor que 0 km.")
+                raise ValidationError("The maintenance interval must be greater than 0 km.")
 
     def action_view_fuel_logs(self):
         return {
-            'name': 'Logs de Combustible',
+            'name': 'Fuel Logs',
             'type': 'ir.actions.act_window',
             'res_model': 'fleet.fuel.log',
             'view_mode': 'tree,form',
@@ -48,8 +48,8 @@ class FleetVehicle(models.Model):
         for v in vehicles:
             v.message_post(
                 body=(
-                    f"Recordatorio: el vehículo '{v.name}' "
-                    f"ya tiene {v.odometer} km y debe ir a mantenimiento en {v.next_maintenance_km} km."
+                    f"Reminder: the vehicle '{v.name}' "
+                    f"already has {v.odometer} km and needs maintenance at {v.next_maintenance_km} km."
                 )
             )
             template = self.env.ref('fleet_fuel.email_template_manintenance')
@@ -60,10 +60,13 @@ class FleetVehicle(models.Model):
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         args = args or []
         domain = []
-        if name:
-            domain = ['|',
+        if domain and ('plate_number', '=', True) in domain and operator in ('like', 'ilike') and limit is not None:
+            sols = self.search_fetch(
+                domain,  ['|',
                 ('plate_number', operator, name),
                 ('name',        operator, name),
-            ]
-        vehicles = self.search(domain + args, limit=limit)
-        return vehicles.name_get()
+            ], limit=limit, order='order_id.id DESC, sequence, id',
+            )
+            return [(sol.id, sol.plate_number) for sol in sols]
+        return super().name_search(name, domain, operator, limit)
+

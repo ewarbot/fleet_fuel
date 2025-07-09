@@ -48,7 +48,7 @@
       <field name="name">fleet.fuel.log.kanban</field>
       <field name="model">fleet.fuel.log</field>
       <field name="arch" type="xml">
-        <kanban string="Logs de Combustible">
+        <kanban string="Fuel Logs">
           <templates>
             <t t-name="card">
               <field class="fw-bold" name="name"/>
@@ -65,14 +65,14 @@
       <field name="name">fleet.fuel.log.search</field>
       <field name="model">fleet.fuel.log</field>
       <field name="arch" type="xml">
-        <search string="Configuración de combustibles">
+        <search string="Fuel Configuration">
           <field name="vehicle_id"/>
         </search>
       </field>
     </record>
 
     <record id="action_fuel_user_logs_view" model="ir.actions.act_window">
-        <field name="name">Logs de Combustible</field>
+        <field name="name">Fuel Logs</field>
         <field name="path">fuel_user_logs</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">fleet.fuel.log</field>
@@ -96,13 +96,13 @@
     </record>
     
     <menuitem id="menu_fleet_fuel_root"
-              name="Registro de Combustible"
+              name="Fuel Registration"
               sequence="220"
               groups="fleet_fuel.group_fleet_fuel_user"
               web_icon="fleet_fuel,static/description/icon.png"/>
 
     <menuitem id="fuel_logs_menu"
-              name="Logs de Combustible"
+              name="Fuel Logs"
               parent="menu_fleet_fuel_root"
               action="action_fuel_user_logs_view"
               sequence="80"

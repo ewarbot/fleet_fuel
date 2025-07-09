@@ -9,13 +9,13 @@
         <field name="user_id"/>  
       </xpath>
       <xpath expr="//sheet/group" position="inside">
-        <group string="Combustible">
+        <group string="Fuel Management">
           <field name="maintenance_interval_km"/>
           <field name="next_maintenance_km"/>
         </group>
       </xpath>
       <xpath expr="//page[@name='page_model']" position="after">
-        <page name="fuel_log" string="Logs de Combustible">
+        <page name="fuel_log" string="Fuel Logs">
           <field name="fuel_log_ids">
             <list>
               <field name="vehicle_id"/>

@@ -1,0 +1,407 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * fleet_fuel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250702\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-09 03:59+0000\n"
+"PO-Revision-Date: 2025-07-09 03:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fleet_fuel
+#: model:ir.module.category,description:fleet_fuel.module_category_fleet_fuel
+msgid ""
+"\n"
+"This module manages the fleet and fuel consumption:\n"
+"- User: Data entry only.\n"
+"- Management: Full permissions on the module.\n"
+"      "
+msgstr ""
+"\n"
+"Este módulo gestiona la flota y el consumo de combustible:\n"
+"- Usuario: Solo entrada de datos.\n"
+"- Gestión: Permisos completos en el módulo.\n"
+"      "
+
+#. module: fleet_fuel
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.fleet_vehicle_view_user_kanban
+msgid "<i class=\"fa fa-map-marker\" title=\"Location\"/>"
+msgstr "<i class=\"fa fa-map-marker\" title=\"Ubicación\"/>"
+
+#. module: fleet_fuel
+#: model:mail.template,body_html:fleet_fuel.email_template_manintenance
+msgid ""
+"<p>Hello ${object.user_id.name or object.driver_id.name},</p>\n"
+"        <p>\n"
+"          This is a reminder that the vehicle\n"
+"          <strong>${object.name}</strong> (plate: <strong>${object.plate_number}</strong>)\n"
+"          is scheduled for maintenance on\n"
+"          <strong>${object.next_maintenance_km} km</strong>.\n"
+"        </p>\n"
+"        <p>\n"
+"          Current mileage: <strong>${object.odometer} km</strong>.<br/>\n"
+"          Maintenance interval: <strong>${object.maintenance_interval_km} km</strong>.\n"
+"        </p>\n"
+"        <p>Please schedule it as soon as possible.</p>\n"
+"        <br/>\n"
+"        <p>Best regards,</p>\n"
+"        <p>${user.company_id.name}</p>\n"
+"      "
+msgstr ""
+"<p>Hola ${object.user_id.name or object.driver_id.name},</p>\n"
+"        <p>\n"
+"          Te recordamos que el vehículo\n"
+"          <strong>${object.name}</strong> (placa: <strong>${object.plate_number}</strong>)\n"
+"          tiene programado un mantenimiento en\n"
+"          <strong>${object.next_maintenance_km} km</strong>.\n"
+"        </p>\n"
+"        <p>\n"
+"          Kilometraje actual: <strong>${object.odometer} km</strong>.<br/>\n"
+"          Intervalo de mantenimiento: <strong>${object.maintenance_interval_km} km</strong>.\n"
+"        </p>\n"
+"        <p>Por favor, prográmalo a la brevedad.</p>\n"
+"        <br/>\n"
+"        <p>Saludos,</p>\n"
+"        <p>${user.company_id.name}</p>\n"
+
+#. module: fleet_fuel
+#: model:ir.model,name:fleet_fuel.model_account_move
+msgid "Account Move Fleet Fuel"
+msgstr "Asiento contable"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: fleet_fuel
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.view_fuel_log_form
+msgid "Additional notes about fuel consumption"
+msgstr "Notas adicionales sobre el consumo de combustible"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_vehicle__user_id
+msgid "Assigned User"
+msgstr "Usuario asignado"
+
+#. module: fleet_fuel
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.fleet_vehicle_view_user_kanban
+msgid "Attention: renewal overdue"
+msgstr "Atención: renovación vencida"
+
+#. module: fleet_fuel
+#: model:ir.model.fields.selection,name:fleet_fuel.selection__fuel_data__fuel_type__cng
+msgid "CNG"
+msgstr "GNC"
+
+#. module: fleet_fuel
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.fleet_vehicle_view_user_kanban
+msgid "Contract(s)"
+msgstr "Contrato(s)"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__cost_per_km
+msgid "Cost per Km"
+msgstr "Costo por Km"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__create_uid
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__create_date
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__company_currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__odometer_current
+msgid "Current Odometer"
+msgstr "Odómetro actual"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: fleet_fuel
+#: model:ir.model.fields.selection,name:fleet_fuel.selection__fuel_data__fuel_type__diesel
+msgid "Diesel"
+msgstr "Diésel"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__display_name
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__driver_id
+msgid "Driver"
+msgstr "Conductor"
+
+#. module: fleet_fuel
+#: model:ir.model.fields.selection,name:fleet_fuel.selection__fuel_data__fuel_type__electric
+msgid "Electric"
+msgstr "Eléctrico"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__end_date
+msgid "End Date"
+msgstr "Fecha de finalización"
+
+#. module: fleet_fuel
+#: model:ir.module.category,name:fleet_fuel.module_category_fleet_fuel
+msgid "Fleet and Fuel"
+msgstr "Flota y Combustible"
+
+#. module: fleet_fuel
+#: model:ir.actions.server,name:fleet_fuel.ir_cron_maintenance_reminder_ir_actions_server
+msgid "Flota: Recordatorio de Mantenimiento"
+msgstr "Flota: Recordatorio de Mantenimiento"
+
+#. module: fleet_fuel
+#: model:ir.actions.act_window,name:fleet_fuel.action_fuel_data_view
+#: model:ir.ui.menu,name:fleet_fuel.fuel_config_settings_menu
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.view_fuel_data_list
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.view_fuel_data_search
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.view_fuel_user_logs_search
+msgid "Fuel Configuration"
+msgstr "Configuración de Combustible"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__fuel_cost
+msgid "Fuel Cost"
+msgstr "Costo de combustible"
+
+#. module: fleet_fuel
+#: model:ir.model,name:fleet_fuel.model_fuel_data
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__fuel_id
+msgid "Fuel Data"
+msgstr "Datos de Combustible"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__invoice_id
+msgid "Fuel Invoice"
+msgstr "Factura de Combustible"
+
+#. module: fleet_fuel
+#: model:ir.actions.act_window,name:fleet_fuel.action_fuel_logs
+#: model:ir.actions.act_window,name:fleet_fuel.action_fuel_user_logs_view
+#: model:ir.model.fields,field_description:fleet_fuel.field_account_bank_statement_line__fuel_log_ids
+#: model:ir.model.fields,field_description:fleet_fuel.field_account_move__fuel_log_ids
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_vehicle__fuel_log_ids
+#: model:ir.ui.menu,name:fleet_fuel.fuel_logs_menu
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.fleet_vehicle_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.view_fuel_log_user_kanban
+msgid "Fuel Logs"
+msgstr "Registros de Combustible"
+
+#. module: fleet_fuel
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.fleet_vehicle_view_form_inherit
+msgid "Fuel Management"
+msgstr "Gestión de Combustible"
+
+#. module: fleet_fuel
+#: model:ir.ui.menu,name:fleet_fuel.menu_fleet_fuel_root
+msgid "Fuel Registration"
+msgstr "Registro de Combustible"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__fuel_type
+msgid "Fuel Type"
+msgstr "Tipo de Combustible"
+
+#. module: fleet_fuel
+#: model:ir.model.fields.selection,name:fleet_fuel.selection__fuel_data__fuel_type__full_hybrid
+msgid "Full Hybrid"
+msgstr "Híbrido Completo"
+
+#. module: fleet_fuel
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.fleet_vehicle_view_user_kanban
+msgid "Future Driver :"
+msgstr "Próximo Conductor :"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__gallons
+msgid "Gallons"
+msgstr "Galones"
+
+#. module: fleet_fuel
+#: model:ir.model.fields.selection,name:fleet_fuel.selection__fuel_data__fuel_type__gasoline
+msgid "Gasoline"
+msgstr "Gasolina"
+
+#. module: fleet_fuel
+#: model:ir.model.fields.selection,name:fleet_fuel.selection__fuel_data__fuel_type__hydrogen
+msgid "Hydrogen"
+msgstr "Hidrógeno"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__id
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__id
+msgid "ID"
+msgstr "ID"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__kilometers
+msgid "Kilometers Driven"
+msgstr "Kilómetros recorridos"
+
+#. module: fleet_fuel
+#: model:ir.model.fields.selection,name:fleet_fuel.selection__fuel_data__fuel_type__lpg
+msgid "LPG"
+msgstr "GLP"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__write_uid
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__write_date
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: fleet_fuel
+#: model:res.groups,name:fleet_fuel.group_fleet_fuel_administrator
+msgid "Management"
+msgstr "Gestión"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_vehicle__next_maintenance_km
+msgid "Next Maintenance (km)"
+msgstr "Próximo mantenimiento (km)"
+
+#. module: fleet_fuel
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.view_fuel_log_user_form
+msgid "Notas adicionales sobre el consumo de combustible"
+msgstr "Notas adicionales sobre el consumo de combustible"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__notes
+msgid "Notes"
+msgstr "Notas"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_vehicle__fuel_logs_count
+msgid "Number of Logs"
+msgstr "Número de registros"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__plate_number
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_vehicle__plate_number
+msgid "Plate Number"
+msgstr "Número de placa"
+
+#. module: fleet_fuel
+#: model:ir.model.fields.selection,name:fleet_fuel.selection__fuel_data__fuel_type__plug_in_hybrid_diesel
+msgid "Plug-in Hybrid Diesel"
+msgstr "Híbrido enchufable Diésel"
+
+#. module: fleet_fuel
+#: model:ir.model.fields.selection,name:fleet_fuel.selection__fuel_data__fuel_type__plug_in_hybrid_gasoline
+msgid "Plug-in Hybrid Gasoline"
+msgstr "Híbrido enchufable Gasolina"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__odometer
+msgid "Previous Odometer"
+msgstr "Odómetro previo"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__price_per_gallon
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__price
+msgid "Price per Gallon"
+msgstr "Precio por galón"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__name
+msgid "Referencia"
+msgstr "Referencia"
+
+#. module: fleet_fuel
+#: model_terms:ir.actions.act_window,help:fleet_fuel.action_fuel_logs
+msgid "Register your fuel consumption here!"
+msgstr "¡Registra tu consumo de combustible aquí!"
+
+#. module: fleet_fuel
+#: model:ir.model,name:fleet_fuel.model_fleet_fuel_log
+msgid "Registro de Combustible"
+msgstr "Registro de Combustible"
+
+#. module: fleet_fuel
+#: model:mail.template,subject:fleet_fuel.email_template_manintenance
+msgid "Reminder: Maintenance for ${object.name}"
+msgstr "Recordatorio: Mantenimiento para ${object.name}"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__tax_ids
+#: model:ir.model.fields,field_description:fleet_fuel.field_fuel_data__tax_ids
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: fleet_fuel
+#: model:res.groups,name:fleet_fuel.group_fleet_fuel_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: fleet_fuel
+#: model:ir.model,name:fleet_fuel.model_fleet_vehicle
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_fuel_log__vehicle_id
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.fleet_vehicle_view_user_kanban
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#. module: fleet_fuel
+#: model:mail.template,name:fleet_fuel.email_template_manintenance
+msgid "Vehicle Maintenance Reminder"
+msgstr "Recordatorio de Mantenimiento del Vehículo"
+
+#. module: fleet_fuel
+#: model:ir.actions.act_window,name:fleet_fuel.action_fleet_vehicle_view_user
+#: model:ir.ui.menu,name:fleet_fuel.vehicle_user_menu
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.view_fleet_vehicle_search
+msgid "Vehicles"
+msgstr "Vehículos"
+
+#. module: fleet_fuel
+#: model_terms:ir.ui.view,arch_db:fleet_fuel.fleet_vehicle_view_user_kanban
+msgid "Warning: renewal due soon"
+msgstr "Advertencia: renovación próxima"
+
+#. module: fleet_fuel
+#: model:ir.model.fields,field_description:fleet_fuel.field_fleet_vehicle__maintenance_interval_km
+msgid "maintenance interval (km)"
+msgstr "intervalo de mantenimiento (km)"

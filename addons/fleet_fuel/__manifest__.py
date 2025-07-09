@@ -2,7 +2,7 @@
     'name': 'Fleet & Fuel Management',
     'version': '1.1',
     'category': 'Fleet',
-    'summary': 'Gestión de flota, combustible, mantenimiento',
+    'summary': 'manages fleet vehicles and fuel consumption',
     'author': 'Ewarbot',
     'depends': ['fleet', 'account'],
     'data': [

@@ -12,49 +12,49 @@ class FleetFuelLog(models.Model):
         copy=False,
         default=lambda self: self.env['ir.sequence'].next_by_code('fleet.fuel.log')
     )
-    vehicle_id = fields.Many2one('fleet.vehicle', string='Vehículo', required=True)
-    driver_id = fields.Many2one('res.partner', string='Conductor', readonly=True)
-    fuel_id = fields.Many2one('fuel.data', string='Datos de Combustible', required=True)
-    plate_number = fields.Char(string='Número de Placa', readonly=True)
+    vehicle_id = fields.Many2one('fleet.vehicle', string='Vehicle', required=True)
+    driver_id = fields.Many2one('res.partner', string='Driver', readonly=True)
+    fuel_id = fields.Many2one('fuel.data', string='Fuel Data', required=True)
+    plate_number = fields.Char(string='Plate Number', readonly=True)
 
-    odometer = fields.Float(string='Odómetro anterior', readonly=True)
-    odometer_current = fields.Float(string='Odómetro actual', required=True)
+    odometer = fields.Float(string='Previous Odometer', readonly=True)
+    odometer_current = fields.Float(string='Current Odometer', required=True)
     kilometers = fields.Float(
-        string='Kilómetros recorridos',
+        string='Kilometers Driven',
         compute='_compute_kilometers',
         store=True
     )
 
     date = fields.Date(
-        string='Fecha',
+        string='Date',
         default=fields.Date.context_today,
         required=True
     )
 
-    gallons = fields.Float(string='Galones', required=True)
+    gallons = fields.Float(string='Gallons', required=True)
     price_per_gallon = fields.Float(
-        string='Precio por Galón',
+        string='Price per Gallon',
         related='fuel_id.price',
         readonly=True,
         store=True
     )
     fuel_cost = fields.Monetary(
-        string='Costo Combustible',
+        string='Fuel Cost',
         compute='_compute_fuel_cost',
         store=True,
         currency_field='company_currency_id'
     )
     cost_per_km = fields.Monetary(
-        string='Coste/Km',
+        string='Cost per Km',
         compute='_compute_cost_per_km',
         store=True,
         currency_field='company_currency_id'
     )
 
-    invoice_id = fields.Many2one('account.move', string='Factura de Combustible')
+    invoice_id = fields.Many2one('account.move', string='Fuel Invoice')
     company_currency_id = fields.Many2one(
         'res.currency',
-        string='Moneda',
+        string='Currency',
         default=lambda self: self.env.company.currency_id,
         readonly=True
     )
@@ -62,7 +62,7 @@ class FleetFuelLog(models.Model):
         'account.tax',
         related='fuel_id.tax_ids'
     )
-    notes = fields.Text(string='Notas')
+    notes = fields.Text(string='Notes')
 
     @api.onchange('vehicle_id')
     def _onchange_vehicle_id(self):
@@ -94,7 +94,7 @@ class FleetFuelLog(models.Model):
     def _check_odometer(self):
         for rec in self:
             if rec.odometer_current < rec.odometer:
-                raise ValidationError("El odómetro actual debe ser mayor o igual al anterior.")
+                raise ValidationError("The current odometer must be greater than or equal to the previous one.")
 
     @api.model
     def create(self, vals):
@@ -114,7 +114,7 @@ class FleetFuelLog(models.Model):
     def action_view_vehicle(self):
         return {
             'type': 'ir.actions.act_window',
-            'name': 'Vehículos',
+            'name': 'Vehicle',
             'res_model': 'fleet.vehicle',
             'view_mode': 'tree,form,kanban',
             'domain': [('id', '=', self.vehicle_id.id)] if self.vehicle_id else [],

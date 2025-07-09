@@ -4,7 +4,7 @@
         <field name="name">fuel.data.list</field>
         <field name="model">fuel.data</field>
         <field name="arch" type="xml">
-            <list string="Configuración de combustibles" editable="bottom">
+            <list string="Fuel Configuration" editable="bottom">
                 <field name="sequence" widget="handle"/>
                 <field name="fuel_type" />
                 <field name="price" />
@@ -19,13 +19,13 @@
         <field name="name">fuel.data.search</field>
         <field name="model">fuel.data</field>
         <field name="arch" type="xml">
-            <search string="Configuración de combustibles">
+            <search string="Fuel Configuration">
                 <field name="fuel_type" />
             </search>
         </field>
     </record>
     <record id="action_fuel_data_view" model="ir.actions.act_window">
-        <field name="name">Configuración de combustibles</field>
+        <field name="name">Fuel Configuration</field>
         <field name="path">fuel_data</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">fuel.data</field>
@@ -40,7 +40,7 @@
         <field name="view_id" ref="view_fuel_data_list"/>
     </record>
     <menuitem id="fuel_config_settings_menu"
-        name="Configuración de combustibles"
+        name="Fuel Configuration"
         action="action_fuel_data_view"
         parent="fleet.fleet_configuration"
         sequence="80"

@@ -1,20 +1,20 @@
 <odoo>
   <template id="report_fleet_fuel_log" inherit_id="fleet.report_vehicle_document">
     <xpath expr="//div[@class='page']" position="inside">
-      <h2>Informe de Consumo de Combustible</h2>
+      <h2>Fuel Consumption Report</h2>
       <t t-foreach="docs" t-as="doc">
         <p>
-          <strong>Vehículo:</strong> <t t-esc="doc.vehicle_id.name"/> —
-          <strong>Fecha:</strong> <t t-esc="doc.date"/>
+          <strong>Vehicle:</strong> <t t-esc="doc.vehicle_id.name"/> —
+          <strong>Date:</strong> <t t-esc="doc.date"/>
         </p>
         <table class="table table-sm">
           <tr>
-            <th>Odómetro</th><th>Litros</th><th>Coste Total</th><th>Coste/Km</th>
+            <th>Odometer</th><th>Gallons</th><th>Price per Gallon</th><th>Cost/Km</th>
           </tr>
           <tr>
             <td><t t-esc="doc.odometer"/></td>
-            <td><t t-esc="doc.liters"/></td>
-            <td><t t-esc="doc.amount_total"/></td>
+            <td><t t-esc="doc.gallons"/></td>
+            <td><t t-esc="doc.price_per_gallon"/></td>
             <td><t t-esc="doc.cost_per_km"/></td>
           </tr>
         </table>

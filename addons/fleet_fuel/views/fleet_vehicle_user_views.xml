@@ -5,7 +5,7 @@
         <field name="model">fleet.vehicle</field>
         <field name="arch" type="xml">
             <kanban default_group_by="state_id" sample="1" create="false" quick_create="false" edit="false" delete="false"
-                    string="Vehículos" class="o_fleet_vehicle_kanban">
+                    string="Vehicle" class="o_fleet_vehicle_kanban">
                 <field name="contract_renewal_due_soon" />
                 <field name="contract_renewal_overdue" />
                 <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
@@ -56,7 +56,7 @@
       <field name="name">fleet.vehicle.search</field>
       <field name="model">fleet.vehicle</field>
       <field name="arch" type="xml">
-        <search string="Vehículos">
+        <search string="Vehicles">
           <field name="plate_number"/>
           <field name="name"/>
         </search>
@@ -64,7 +64,7 @@
     </record>
 
     <record id="action_fleet_vehicle_view_user" model="ir.actions.act_window">
-        <field name="name">Vehículos</field>
+        <field name="name">Vehicles</field>
         <field name="path">vehicle_user</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">fleet.vehicle</field>
@@ -82,7 +82,7 @@
     </record>
     
     <menuitem id="vehicle_user_menu"
-              name="Vehículos"
+              name="Vehicles"
               parent="menu_fleet_fuel_root"
               action="action_fleet_vehicle_view_user"
               sequence="80"
